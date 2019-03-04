@@ -4,6 +4,7 @@ Feature: test-feature
   Background:
     Given User prints comment "User navigates to the Blog page"
     When User navigates to the "Blog" page with url "https://thinkmobiles.com/blog/"
+    When User waits 4000 seconds
     Then Page title is equal to "Blog"
 
   Scenario Outline: 1: Subscription to news

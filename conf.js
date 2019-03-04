@@ -17,10 +17,23 @@ exports.config =  {
     ],
 
     cucumberOpts: {
-        require: ['step-definitions/*.js']
+        require: ['step-definitions/*.js'],
+        keepAlive: false,
+        format: ['json:reports/json/results.json', 'progress'],
+        strict: true,
     },
 
     onComplete: function () {
         browser.quit();
-    }
+    },
+    plugins: [{
+        package: 'protractor-multiple-cucumber-html-reporter-plugin',
+        options: {
+            automaticallyGenerateReport: true,
+            displayDuration: true,
+            durationInMS: true,
+            saveCollectedJSON: true
+        }
+    }]
+
 };
